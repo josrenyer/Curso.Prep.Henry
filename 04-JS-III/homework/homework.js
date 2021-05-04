@@ -10,7 +10,7 @@ function devolverPrimerElemento(array) {
 function devolverUltimoElemento(array) {
   // Devuelve el último elemento de un array
   // Tu código:
-  return array [array.length - 1];
+  return array[array.length-1];
 }
 
 
@@ -26,12 +26,11 @@ function incrementarPorUno(array) {
   // Aumenta cada entero por 1
   // y devuelve el array
   // Tu código:
-   var nuevoarray = [];
-   for (var i = 0; i < array.length; i++){
-     nuevoarray[i] = array [i] + 1;
-   }
-   return nuevoarray;
-   
+  for(var i = 0; i < array.length; i++) {
+    array.push(array[i]+ 1);
+  }
+
+  return array;
 }
 
 
@@ -60,7 +59,7 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
-  return palabras.join(' ');
+  return palabras.join(" ");
 }
 
 
@@ -68,8 +67,8 @@ function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
-  for (var i = 0; i < array.length; i ++){
-    if (array[i] == elemento){
+  for(var i = 0; i < array.length; i++){
+    if(array[i] === elemento){
       return true;
     }
   }
@@ -81,8 +80,10 @@ function agregarNumeros(numeros) {
   // "numeros" debe ser un arreglo de enteros (int/integers)
   // Suma todos los enteros y devuelve el valor
   // Tu código:
-  const reducer = (acc, el) => acc + el;
-  return numeros.reduce(reducer);
+  var suma = numeros.reduce((acumulador, valoractual)=>{
+    return  acumulador + valoractual;
+  });
+  return suma;
 }
 
 
@@ -90,9 +91,10 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
-  const reducer = resultadosTest.reduce((acc, el) => acc + el);
-  return promedio = reducer / resultadosTest.length;
-
+  const sumaTotalNotas = resultadosTest.reduce((acumulado, valoractual) => acumulado + valoractual);
+  var promedio = sumaTotalNotas / resultadosTest.length;
+              // suma de todas la notas / la cantidad de notas
+  return promedio;
 }
 
 
@@ -108,7 +110,9 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
-  if(arguments.length < 1) return 0;
+  if(arguments.length < 1){
+     return 0;
+  }
   var total = 1;
   for(var i = 0; i < arguments.length; i++) {
     total = total * arguments[i];
@@ -149,8 +153,8 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-  var nuevonumero = n.toString()
-  if(nuevonumero.charAt(0) === "9"){
+  var numeroEntero = n.toString();
+  if(numeroEntero.charAt(0) === "9"){
     return true;
   }
   return false;
@@ -161,8 +165,8 @@ function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
-  for(var i = 0; i < arreglo.length - 1; i++){
-    if(arreglo[i] == arreglo[i+1]){
+  for(var i=0; i< arreglo.length -1; i++){
+    if(arreglo[i] === arreglo[i+1]){
       return true;
     }
   }
@@ -175,18 +179,16 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
-  nuevoarray = [];
-  for(var i = 0; i < array.length; i++){
-    if(array[i]== 'Enero' || array[i] == 'Marzo' || array[i] == 'Noviembre'){
-      nuevoarray.push(array[i]);
+  var meses =[];
+  for(var i=0; i<array.length; i++){
+    if(array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre"){
+      meses.push(array[i]);
     }
   }
-  if(nuevoarray.length < 3){
-
-  return 'No se encontraron los meses pedidos';
-  }else{
-  return nuevoarray;
+  if(meses.length < 3){
+    return "No se encontraron los meses pedidos";
   }
+  return meses;
 }
 
 
@@ -194,13 +196,13 @@ function mayorACien(array) {
   //La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
   //valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.
   // Tu código:
-  var nuevoarray =[];
-  for (var i = 0; i<array.length-1; i++){
-    if(array[i] > 100){
-      nuevoarray.push(array[i]);
+  var mayora100 = [];
+  for(var i=0; i< array.length; i++){
+    if(array[i]>100){
+      mayora100.push(array[i]);
     }
   }
- return nuevoarray;
+  return mayora100;
 }
 
 
@@ -212,22 +214,21 @@ function breakStatement(numero) {
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
   // Tu código:
-  var nuevoarray = [];
-  for(var i = 0; i < 10; i++){
-    numero = numero + 2;
-    if(numero ==  i){
-       break;
-    }else{
-      nuevoarray.push(numero);
-    }
-  }
-  if(i < 10) {
-    return 'Se interrumpió la ejecución';
-  }
+var nuevoArray = [];
+for (var i = 0; i < 10; i++){
+  numero = numero + 2;
+  if(numero == i) break;
   else {
-      return nuevoarray;
+    nuevoArray.push(numero);
   }
 }
+if(i < 10) {
+  return 'Se interrumpió la ejecución';
+}
+else {
+    return nuevoArray;
+}
+} 
 
 
 function continueStatement(numero) {
@@ -237,16 +238,15 @@ function continueStatement(numero) {
   //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
   //Pista: usá el statement 'continue'
   // Tu código:
-  var nuevoarray = [];
+  var nuevoArray =[];
   for(var i = 0; i < 10; i++){
-    if(i ==  5){
-       continue;
-    }else{
-      numero = numero + 2;
-      nuevoarray.push(numero);
+    if(i == 5) continue;
+    else{
+    numero = numero + 2;
+    nuevoArray.push(numero);
     }
   }
-  return nuevoarray;
+  return nuevoArray;
 }
 
 
